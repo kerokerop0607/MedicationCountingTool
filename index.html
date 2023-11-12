@@ -20,6 +20,8 @@
 <input type="number" id="night">
 <br>
 <button onclick="performOperations()">計算</button>
+<br>
+<div id="results"></div>
 
 <script>
     function performOperations() {
@@ -42,10 +44,11 @@
             var morningPlusNight2 = morningPlusNight * 2;
 
             // 結果を表示
-            document.body.innerHTML += "<p>朝・昼・夜: " + sum + "</p>";
-            document.body.innerHTML += "<p>朝・昼・夜2錠ずつ: " + sum2 + "</p>";
-            document.body.innerHTML += "<p>朝・夜: " + morningPlusNight + "</p>";
-            document.body.innerHTML += "<p>朝・夜 2錠ずつ: " + morningPlusNight2 + "</p>";
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>朝・昼・夜: " + sum + "</p>" +
+                                   "<p>朝・昼・夜2錠ずつ: " + sum2 + "</p>" +
+                                   "<p>朝・夜: " + morningPlusNight + "</p>" + 
+                                   "<p>朝・夜 2錠ずつ: " + morningPlusNight2 + "</p>";
         } else {
             // 空の場合の処理
             alert("有効な数値を入力してください。");
