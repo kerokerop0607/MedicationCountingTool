@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>薬の数を数えるツール</title>
+</head>
+<body>
+
+薬の数を数えるツールです。<br>
+朝・昼・夜の薬の回数を入力すると、薬が何錠必要かがわかります。<br>
+
+<label for="morning">朝:</label>
+<input type="number" id="morning">
+<br>
+<label for="noon">昼:</label>
+<input type="number" id="noon">
+<br>
+<label for="night">夜:</label>
+<input type="number" id="night">
+<br>
+<button onclick="performOperations()">計算</button>
+
+<script>
+    function performOperations() {
+        // 入力ボックスから数値を取得
+        var morning = document.getElementById("morning").value;
+        var noon = document.getElementById("noon").value;
+        var night = document.getElementById("night").value;
+
+        // 入力があるかどうかを確認
+        if (morning !== "" && noon !== "" && night !== "") {
+            // 入力を数値に変換
+            var morningNum = parseFloat(morning);
+            var noonNum = parseFloat(noon);
+            var nightNum = parseFloat(night);
+
+            // 足し算と掛け算を実行
+            var sum = morningNum + noonNum + nightNum;
+            var sum2 = sum * 2;
+            var morningPlusNight = morningNum + nightNum;
+            var morningPlusNight2 = morningPlusNight * 2;
+
+            // 結果を表示
+            document.body.innerHTML += "<p>朝・昼・夜: " + sum + "</p>";
+            document.body.innerHTML += "<p>朝・昼・夜2錠ずつ: " + sum2 + "</p>";
+            document.body.innerHTML += "<p>朝・夜: " + morningPlusNight + "</p>";
+            document.body.innerHTML += "<p>朝・夜 2錠ずつ: " + morningPlusNight2 + "</p>";
+        } else {
+            // 空の場合の処理
+            alert("有効な数値を入力してください。");
+        }
+    }
+</script>
+
+</body>
+</html>
